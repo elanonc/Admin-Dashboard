@@ -18,18 +18,34 @@ const User = require('./models/User');
 const Post = require('./models/Post');
 
 AdminJs.registerAdapter(mongooseAdminJS);
+
+const createParent = {
+    name: 'Create'
+}
+
+const managerParent = {
+    name: 'Manage'
+}
+
 // Onde a magia acontece
 const AdminJsOptions = {
-    resources: [User,
+    resources: [
     {
-        resource: Post, 
+        resource: User,
+        options: {
+            parent: managerParent 
+        }
+    },
+    {
+        resource: Post,
         options: {
         properties: {
             content: { type: 'richtext' },
             created_at: {
                 isVisible: { edit: false, list: true, show: true, filter: true }
             }
-        }
+        },
+        parent: createParent,
        }
     },
     ],
