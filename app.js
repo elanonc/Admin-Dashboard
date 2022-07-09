@@ -2,7 +2,6 @@ const express = require('express');
 const conexao = require('./database/db');
 const app = express();
 
-require('./database/db');
 conexao.once('open', () => console.log('Conexão feita com sucesso'));
 conexao.on('error', () => console.log('Erro de conexão: ' + error));
 
@@ -58,7 +57,7 @@ const AdminJsOptions = {
         },
     rootPath: '/admin',
     branding: {
-        companyName: 'Elano'
+        companyName: 'Elano Web Developer'
     }
 };
 
