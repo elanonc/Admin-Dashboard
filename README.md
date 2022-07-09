@@ -1,4 +1,4 @@
- ## FinAPI - API Financeira
+ ## CRUD utilizando AdminJS
 
 ![image](https://drive.google.com/uc?export=view&id=10pleCPeNHpw2ssRjdmY-VEMvgG1fiQzg)
 
