@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema( {
-    name: String,
-    age: {type: Number, min: 18, index: true},
-    country: String
+const PostSchema = new mongoose.Schema( {
+    title: { type: String, required: true },
+    content: String,
+    created_at: { type: Date, default: Date.now }
 } );
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Post', PostSchema);

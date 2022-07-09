@@ -1,3 +1,5 @@
+// MongoDB
+
 const mongoose = require('mongoose');
 const uri = 'mongodb://localhost/base_adminjs';
 

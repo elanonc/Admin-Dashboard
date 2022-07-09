@@ -17,8 +17,34 @@ const mongooseAdminJS = require('@adminjs/mongoose');
 const User = require('./models/User');
 const Post = require('./models/Post');
 
-AdminJs.registerAdapter(mongooseAdminJS); // 
-const AdminJsOptions = {resources: [User, Post]};
+AdminJs.registerAdapter(mongooseAdminJS);
+// Onde a magia acontece
+const AdminJsOptions = {
+    resources: [User,
+    {
+        resource: Post, 
+        options: {
+        properties: {
+            content: { type: 'richtext' },
+            created_at: {
+                isVisible: { edit: false, list: true, show: true, filter: true }
+            }
+        }
+       }
+    },
+    ],
+        locale: {
+            translations: {
+                labels: {
+                    Post: 'My Posts'
+                }
+            }
+        },
+    rootPath: '/admin',
+    branding: {
+        companyName: 'Elano'
+    }
+};
 
 const admin = new  AdminJs(AdminJsOptions);
 const router = expressAdminJs.buildRouter(admin);
@@ -28,4 +54,4 @@ app.get("/admin", (require, response) => {
     response.send('Dashboard com NodeJs');
 })
 
-app.listen(3333, () => console.log('Server started on localhost:3333/admin'));
+app.listen(3333, () => console.log('Server started on https://localhost:3333/admin'));
