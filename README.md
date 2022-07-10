@@ -11,10 +11,10 @@ O projeto foi feito utilizando as seguintes tecnologias:
 
 ## Features
 
-- Create 
-- Read 
-- Update 
-- Delete 
+* Create 
+* Read 
+* Update 
+* Delete 
 
 ## Para executar
 ```bash
